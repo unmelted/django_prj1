@@ -1,4 +1,4 @@
-# My first project regarding django.
+# My first project using django.
 
-###1. Environment
+### 1. Environment
     Anaconda, Pycharm,Emacs(My favorite)
