@@ -20,3 +20,13 @@
 
     Then, You can see the first django page!
     Access 127.0.0.1:8000
+
+    1-5. Start App
+         python manage.py startapp blogapp
+    (every step, take care about commit necessary files and exclude unnecessary files in .gitignore (ex. sqlite, migrations)
+
+
+python manage.py createsuperuser
+python manage.py runserver (check admin page)
+python manage.py makemigrations (specify isntalled blogapp in setting page)
+python manage.py migrate (reflect the change)
