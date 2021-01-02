@@ -1,8 +1,13 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <title>Kelly Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'blogapp/mint.css' %}">
+    <link rel="stylesheet" href="{% static 'blogapp/custom.min.css' %}">
+
 </head>
 <body>
 <h1>Kelly's Blog </h1>
@@ -11,5 +16,9 @@
     <h4>{{ p.created}} by {{p.author}}</h4>
     <p>{{p.content}}</p>
 {% endfor %}
+
+    <script src="{% static 'blogapp/jquery.min.js' %}"></script>
+    <script src="{% static 'blogapp/bundle.min.js' %}"></script>
+    <script src="{% static 'blogapp/custom.js' %}"></script>
 </body>
 </html>
