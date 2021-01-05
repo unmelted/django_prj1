@@ -5,10 +5,19 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 
 # Create your tests here.
+def create_post(title, content, author):
+    post_ = Post.objects.create(
+        title= title,
+        content= content,
+        created=timezone.now(),
+        author=author,
+    )
+    return post_
+
 class TestView(TestCase):
-    def setup(self):
+    def setUp(self):
         self.client = Client()
-        self.author_000 = User.objects.create(username="tester", passworld='nopassword')
+        self.author_000 = User.objects.create(username="tester", password='nopassword')
 
     def test_post_list(self):
         response = self.client.get('/blog/')
@@ -23,14 +32,8 @@ class TestView(TestCase):
         self.assertIn("Kelly's Note", navbar.text)
         self.assertIn("About", navbar.text)
 
-#        self.assertEqual(Post.objects.count(), 0)
+        self.assertEqual(Post.objects.count(), 0)
 #        self.assertIn("Empty Post yet", soup.body.text)
-'''
-        post_000 = Post.objects.create(
-            title="The first Post",
-            content="Hello world.",
-            created=timezone.now(),
-            author=self.author_000,
-        )
-'''
-    #def test_post_detail(self):
+        create_post("first Post", "Hello world", self.author_000)
+
+#    def test_post_detail(self):
