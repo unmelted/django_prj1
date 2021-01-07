@@ -31,4 +31,4 @@ python manage.py runserver (check admin page)
 python manage.py makemigrations (specify isntalled blogapp in setting page)
 python manage.py migrate (reflect the change)
 
-source bin/activate (at venv directry)
+source bin/activate (at venv directry) 
