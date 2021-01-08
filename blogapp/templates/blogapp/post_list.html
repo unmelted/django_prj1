@@ -1,29 +1,34 @@
 {% extends 'blogapp/base.html' %}
-{% block content %}
-<h1 class="my-4">Kelly Blog
-  <small>EVERYDAY IS NEW DAY!</small>
-</h1>
 
-<!-- Blog Post -->
-{% if object_list.exists %}
-{% for p in object_list %}
-<div class="card mb-4">
-  {% if p.head_image %}
-  <img class="card-img-top" src="{{ p.head_image.url }}" alt="Card image cap">
+{% block content %}
+  <h1 class="my-4">Kelly Blog
+    {% if category %}
+        <small class="text-muted">: {{ category }} </small>
+    {% else %}
+      <small>EVERYDAY IS NEW DAY!</small>
+    {% endif %}
+  </h1>
+
+  <!-- Blog Post -->
+  {% if object_list.exists %}
+    {% for p in object_list %}
+      <div class="card mb-4">
+        {% if p.head_image %}
+        <img class="card-img-top" src="{{ p.head_image.url }}" alt="Card image cap">
+        {% endif %}
+        <div class="card-body">
+          <span class="badge bg-primary text-dark float-right">{{ p.category }}</span>
+          <h2 class="card-title">{{ p.title }}</h2>
+          <p class="card-text">{{ p.content | truncatewords:50 }}</p>
+          <a href="{{ p.get_absolute_url }}" class="btn btn-info" id="read-more-post-{{ p.pk }}">Read More</a>
+        </div>
+        <div class="card-footer text-muted">
+          Posted on {{ p.created }} by
+          <a href="#">{{ p.author }}</a>
+        </div>
+      </div>
+    {% endfor %}
+  {% else %}
+    <h3>No Post Yet.</h3>
   {% endif %}
-  <div class="card-body">
-    <span class="badge bg-primary text-dark float-right">{{ p.category }}</span>
-    <h2 class="card-title">{{ p.title }}</h2>
-    <p class="card-text">{{ p.content | truncatewords:50 }}</p>
-    <a href="{{ p.get_absolute_url }}" class="btn btn-info" id="read-more-post-{{ p.pk }}">Read More</a>
-  </div>
-  <div class="card-footer text-muted">
-    Posted on {{ p.created }} by
-    <a href="#">{{ p.author }}</a>
-  </div>
-</div>
-{% endfor %}
-{% else %}
-<h3>No Post Yet.</h3>
-{% endif %}
 {% endblock %}
