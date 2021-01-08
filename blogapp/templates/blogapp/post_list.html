@@ -12,7 +12,7 @@
   <img class="card-img-top" src="{{ p.head_image.url }}" alt="Card image cap">
   {% endif %}
   <div class="card-body">
-    <span class="badge bg-light text-dark">{{ p.category }}</span>
+    <span class="badge bg-primary text-dark float-right">{{ p.category }}</span>
     <h2 class="card-title">{{ p.title }}</h2>
     <p class="card-text">{{ p.content | truncatewords:50 }}</p>
     <a href="{{ p.get_absolute_url }}" class="btn btn-info" id="read-more-post-{{ p.pk }}">Read More</a>
