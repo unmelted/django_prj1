@@ -1,13 +1,15 @@
 {% extends 'blogapp/base.html' %}
 {% block content %}
     <!-- Title -->
-    <span class="badge bg-primary text-dark ">{{ object.category }}</span>
+    <span class="badge bg-info text-dark ">{{ object.category }}</span>
     <h1 class="mt-4">{{ object.title }}</h1>
-
     <!-- Author -->
     <p class="lead">
       by
-      <a href="#">{{ object.author }}</a>
+      <a href="#">{{ object.author    }}</a>
+        {% if request.user == object.author %}
+            <button type="button" class="btn btn-sm btn-outline-secondary float-right">EDIT</button>
+        {% endif %}
     </p>
     <hr>
 
