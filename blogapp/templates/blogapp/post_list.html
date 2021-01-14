@@ -5,7 +5,9 @@
     {% if category %}
         <small class="text-muted">: {{ category }} </small>
     {% else %}
-      <small>EVERYDAY IS NEW DAY!</small>
+      {% if tag %}
+        <small class "text-muted">: #{{ tag }}</small>
+      {% endif %}
     {% endif %}
   </h1>
 
