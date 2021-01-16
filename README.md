@@ -5,7 +5,7 @@
 
 ### 2. Initial Install Step
     1-1. Meke project in pycharm, virtual env.
-    1-2. Install django, start project. (in virtual
+    1-2. Install django, start project. (i use conda env)
     
         django-admin startproject 
 
@@ -31,4 +31,3 @@ python manage.py runserver (check admin page)
 python manage.py makemigrations (specify isntalled blogapp in setting page)
 python manage.py migrate (reflect the change)
 
-source bin/activate (at venv directry) 
