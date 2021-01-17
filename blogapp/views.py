@@ -91,6 +91,21 @@ class PostListByTag(ListView):
 
         return context
 
+
+def new_comment(request, pk):
+    post = Post.objects.get(pk=pk)
+
+    if request.method == 'POST':
+        comment_form = CommentForm(request.POST)
+        if comment_form.is_valid() :
+            comment = comment_form.save(commit=False)
+            comment.post = post
+            comment.author = request.user
+            comment.save()
+            return redirect(comment.get_absolute_url())
+    else :
+        return redirect('/blog/')
+
 '''
 def post_detail(request, pk):
     blog_post = Post.objects.get(pk=pk)
