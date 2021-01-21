@@ -55,7 +55,7 @@
                 <button class="btn btn-sm btn-outline-secondary float-right">edit</button>
                 <button class="btn btn-sm btn-outline-secondary float-right">delete</button>
               {% endif %}
-            <h5 class="mt-0">{{ comment.author }}<small class="text_muted">{{ comment.created_at }}</small></h5>
+            <h5 class="mt-0">{{ comment.author }}    <small class="text_muted">{{ comment.created_at }}</small></h5>
               {{ comment.get_markdown_content | safe }}
           </div>
         </div>
