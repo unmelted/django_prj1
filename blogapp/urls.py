@@ -21,6 +21,7 @@ urlpatterns = [
     path('tag/<str:slug>/', views.PostListByTag.as_view()),
     path('<int:pk>/', views.PostDetail.as_view()),
     path('delete_comment/<int:pk>/', views.delete_comment),
+    path('edit_comment/<int:pk>/', views.CommentUpdate.as_view()),
     path('<int:pk>/new_comment/', views.new_comment),
     path('<int:pk>/update/', views.PostDetailUpdate.as_view()),
     path('create/', views.PostCreate.as_view()),

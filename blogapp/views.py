@@ -109,14 +109,22 @@ def new_comment(request, pk):
 def delete_comment(request, pk):
     comment = Comment.objects.get(pk=pk)
     post = comment.post
-    print("delete comment function is called ")
 
     if request.user == comment.author:
         comment.delete()
-        print("delete compete")
         return redirect(post.get_absolute_url() + '#comment-list')
     else :
         return PermissionError('Permission Denied.')
+
+class CommentUpdate(UpdateView):
+    model = Comment
+    form_class = CommentForm
+
+    def get_object(self, queryset=None):
+        comment = super(CommentUpdate, self).get_object()
+        if comment.author != self.request.user:
+            raise PermissionError('Permission Denied')
+        return comment
 
 '''
 def post_detail(request, pk):
