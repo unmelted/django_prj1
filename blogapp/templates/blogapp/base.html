@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{% static 'blogapp/mint.css' %}">
     <link rel="stylesheet" href="{% static 'blogapp/custom.min.css' %}">
+    <script src="https://kit.fontawesome.com/c13233cb25.js" crossorigin="anonymous"></script>
 </head>
 <body>
  <div class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark" id="navbar">
@@ -53,9 +54,58 @@
               </div>
             </li>
           </ul>
+
+          <ul  class="nav navbar-nav ml-auto">
+            {% if user.is_authenticated %}
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown" >{{ user }} <span class="caret"></span></a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="/accounts/logout/">LogOut</a>
+              </div>
+            </li>
+            {% else %}
+            <li class="nav-item">
+              <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#loginModal">
+                Login
+              </button>
+            </li>
+            {% endif %}
+          </ul>
+
         </div>
       </div>
     </div>
+
+{% load socialaccount %}
+ <!-- Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Please Log in</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <a role="button" class="btn btn-outline-primary" href="{% provider_login_url 'google' %}"><i class="fab fa-google"></i>  Log in with Google</a>
+                        <a role="button" class="btn btn-outline-info" href="/accounts/login/"><i class="far fa-envelope"></i>  Log in with Email</a>
+                    </div>
+                    <div class="col-md-6">
+                        <a role="button" class="btn btn-outline-info" href="/accounts/signup/"><i class="far fa-envelope"></i>  Sign Up with Email</a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="container">
     <div class="row">
       <!-- Blog Entries Column -->
@@ -102,7 +152,6 @@
         </div>
 
       </div>
-
     </div>
     <!-- /.row -->
 
