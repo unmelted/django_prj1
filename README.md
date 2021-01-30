@@ -31,3 +31,15 @@ python manage.py runserver (check admin page)
 python manage.py makemigrations (specify isntalled blogapp in setting page)
 python manage.py migrate (reflect the change)
 
+
+# For cloud server setting
+1. Check insall Python
+2. Virtual Evn setting
+   2-1. Visit Anaconda.com/downloads
+   2-2. Copy the bash installer link
+   2-3. User wget to download the bash installer
+   2-4. Run bash script to install Anaconda3
+   2-5. conda create -n django python
+   2-6. install prerequisite library in virtual env. (before "no such table" error is shown)
+   2-7. python manage.py makemigrations
+   2-8. python manage.py migrate
