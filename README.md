@@ -1,4 +1,4 @@
-# My first project using django.
+python manage.py runserver 0:8000# My first project using django.
 
 ### 1. Environment
     Anaconda, Pycharm, Emacs(My favorite)
@@ -44,4 +44,6 @@ python manage.py migrate (reflect the change)
     2-7. python manage.py makemigrations
     2-8. python manage.py migrate
 
-3. IP address connect
+### 3. IP address connect
+    3-1. Add ip in Allowed_host of settings.py
+    3-2. python manage.py runserver 0:8000

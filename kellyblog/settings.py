@@ -26,7 +26,7 @@ SECRET_KEY = 'i-&ty#x$+h2^6=u8=@^z09l9g()6p_!91_11tl879iz7#*rd!w'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['139.180.193.215','127.0.0.1']
+ALLOWED_HOSTS = ['139.180.193.215','127.0.0.1', 'flowing-grace.com']
 
 
 # Application definition
