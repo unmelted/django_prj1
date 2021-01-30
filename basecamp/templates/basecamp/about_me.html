@@ -1,7 +1,29 @@
-{% extends 'basecamp/base_full.html' %}
 
+{% extends 'basecamp/base_full.html' %}
+{% load static %}
 {% block content %}
     <div class="container">
-        <h1>About Me</h1>
+        <div class="row">
+            <div class="col-md-9">
+                <h1 class="my-3">About Me </h1>
+                <h3 class="my-3"> Hello! I am Kelly. </h3></br></br>
+                <h5 class="my-2">새로운 일을 기다리고 있습니다. </h5>
+                <h5 class="my-2">c++/python/flask/django</h5>
+            </div>
+
+            <div class="col-md">
+                <img class="img-fluid" src="{% static 'basecamp/images/me.jpeg' %}" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <img class="img-fluid" src="{% static 'basecamp/images/me.jpeg' %}"/>
+            </div>
+            <div class="col-md">
+                <h1 class="my-3">Contact me</h1>
+                <h3>Email: <small>unmelted@naver.com</small></h3>
+            </div>
+        </div>
     </div>
+
 {% endblock %}
