@@ -47,3 +47,7 @@ python manage.py migrate (reflect the change)
 ### 3. IP address connect
     3-1. Add ip in Allowed_host of settings.py
     3-2. python manage.py runserver 0:8000
+
+### 4. Don't remember createsuperuser
+### 5. ETC
+    remember Google auth. set again with new release server.
